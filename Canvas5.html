@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>retângulo colorido</title>
+    </head>
+
+    <body>
+        <canvas id="meu_canvas" width="500" height="500" ></canvas>  
+        <script>
+            // Cavas e contexto
+            var canvas = document.getElementById('meu_canvas');
+            var context = canvas.getContext('2d');
+
+            // carrgar a imagen
+            var imagem = new Image();
+            imagem.src = 'img/explosao.png';
+            imagem.onload = function(){
+                context.drawImage(
+                    imagem,
+                    210,10,60,65,
+                    20,20,60,65
+                );
+                
+            }
+        </script>
+    </body>
+</html>

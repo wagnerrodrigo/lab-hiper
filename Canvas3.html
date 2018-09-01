@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+   <title>Caminhos html</title>
+</head>
+<body>
+  <canvas id="meu_canvas" width="300" height="300" ></canvas>  
+  <script>
+      // canvas e contexto
+      var canvas = document.getElementById('meu_canvas');
+      var context = canvas.getContext('2d');
+
+      // cores e espessura da linha
+      context.fillStyle = 'gray';
+      context.strokeStyle = 'black';
+      context.lineWidth = 2;
+
+     //primeiro arco;
+
+     // novo path
+     context.beginPath();
+     // desenha
+     context.arc(50,50,40,90*Math.PI/180,270*Math.PI/180,false);
+     // preeencimento
+     context.fill();
+     // contorno
+     context.stroke();
+    // segundo arco
+    context.beginPath();
+    context.arc(150,50,40,90*Math.PI/180,270*Math.PI/180,true);
+    context.fill();
+    context.stroke();
+
+    // circunferência completa
+    context.beginPath();
+    context.arc(250,50,40,0,2*Math.PI);
+    context.fill();
+    context.stroke();
+  
+
+
+  </script>
+</body>
+</html>

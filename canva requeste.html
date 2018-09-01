@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+        <title>canvas 7</title>
+</head>
+<body>
+<canvas id="meu_canvas" width="300" height="300"></canvas>
+            
+    <script>
+    canvas = document.getElementById('meu_canvas');
+    context = canvas.getContext('2d');
+
+    var x = 20;
+    var y = 100;
+    var raio = 5;
+
+    // inicio a animação
+    requestAnimationFrame(mexerBola);
+    function mexerBola(){
+        // limpar o canvas
+        context.clearRect(0,0,canvas.width,canvas.height);
+        // desenha a bola
+        context.beginPath();
+        context.arc(x,y,raio,0,Math.PI*2);
+        context.fill();
+        // deseloca 20 pixels para a direita
+        y -=20;
+        // chamar o próximo ciclo de animação 
+        requestAnimationFrame(mexerBola);
+    }
+
+ </script>
+
+    
+</body>
+</html>

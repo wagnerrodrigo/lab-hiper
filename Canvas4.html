@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>retângulo colorido</title>
+    </head>
+
+    <body>
+        <canvas id="meu_canvas" width="500" height="500" ></canvas>  
+        <script>
+            // Cavas e contexto
+            var canvas = document.getElementById('meu_canvas');
+            var context = canvas.getContext('2d');
+
+            // carrgar a imagen
+            var imagem = new Image();
+            imagem.src = 'img/ovni.png';
+            imagem.onload = function(){
+                var x = 450;
+                var y = 20;
+
+                // desenha as imagens
+
+
+                for (var i = 1; i <=5; i++){
+                    context.drawImage(imagem, x , y, -64, 32);
+                    x -=70;
+                    y +=70;
+
+                }
+            }
+        </script>
+    </body>
+</html>

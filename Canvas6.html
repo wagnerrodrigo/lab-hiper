@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html >
+<head>
+        <title>canvas 6</title>
+</head>
+<body>
+
+        <canvas id="meu_canvas" width="200" height="200" ></canvas>  
+        <script>
+            // Cavas e contexto
+            var canvas = document.getElementById('meu_canvas');
+            var context = canvas.getContext('2d');
+
+            context.fillStyle = 'green';
+            context.fillRect(50,50,25,25);
+
+            // salvando a configuração 
+            context.save();
+            // agora um quadrado roxo
+            context.fillStyle= 'purple';
+            context.fillRect(100,50,25,25);
+
+            //valtamos para o nivel
+            context.restore();
+
+            //voltando para o verde
+            context.fillRect(150,50,25,25);
+        </script>
+
+    
+</body>
+</html>

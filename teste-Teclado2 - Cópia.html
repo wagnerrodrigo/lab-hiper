@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>movimentando personagem com keydow</title>
+    <script src="teclado.js"></script>
+</head>
+<body>
+    <canvas id="canvas_teclado_2" width="1000" height="500" ></canvas>
+    <script>
+        // referencias do canvas
+        var canvas = document.getElementById("canvas_teclado_2");
+        var context = canvas.getContext('2d');
+
+        // posiçao inicial do personagem
+
+        var posicao=0;
+        var y= 0;
+        var imagem = new Image();
+        imagem.src= 'img/ovni.png'
+        desenharPersonagem();
+
+        // controlador do teclado
+        var teclado = new Teclado(document);
+
+        // um loop de animação básico;
+        requestAnimationFrame(animar);
+        
+        function animar(){
+            if( teclado.pressionada(SETA_ESQUERDA))
+            posicao -=10;
+            else if( teclado.pressionada(SETA_DIRETA))
+            posicao +=10;
+            else if( teclado.pressionada(SETA_CIMA))
+            y -=10;
+            else if( teclado.pressionada(SETA_BAIXO))
+            y +=10;
+
+
+
+            
+
+            desenharPersonagem();
+            requestAnimationFrame(animar);
+        }
+
+        function desenharPersonagem(){
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            // imagem
+            context.drawImage(imagem,posicao,y,-64,32);
+            //context.fillRect(posicao,y,2,50);
+        }
+
+        
+    </script>
+</body>
+</html>
