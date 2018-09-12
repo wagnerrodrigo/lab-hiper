@@ -61,8 +61,17 @@ Colisor.prototype = {
         
     },
     retangulosColidem: function (ret1, ret2) {
-        // formula de intersecão de retagunlos
-        
+    // formula de intersecão de retagunlos
+    return (ret1.x + ret1.largura)> ret2.x && ret1.x< (ret2.x + ret2.largura)&& (ret1.y + ret1.altura)>ret2.y && ret.y(ret2.y + ret2.altura);  
+    },
+    stringUnica: function (sprite) {
+        var str = '';
+        var retagunlos = sprite.retangulosColidem();
+
+        for (var i in retagunlos){
+            str += 'x:' + retagunlos[i].x + ',' +
+            'y'
+        }
     }
 
 }
