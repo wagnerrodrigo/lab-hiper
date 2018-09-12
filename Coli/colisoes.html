@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="bola.js"></script>
+    <script src="colisor.js"></script>
+</head>
+<body>
+    <canvas id="canvas_colisao" width="500" height="500"></canvas>
+    <script>    
+        var convas = document.getElementById('canvas_colisao');
+        var context = canvas.getContext('2d');
+
+        var b1 = new Bola(context);
+        b1.x = 200;
+        b1.y = 200;
+        b1.velocidadeX = 10;
+        b1.velocidadeY = -5;
+        b1.cor = 'blue';
+        b1.raio = 20;
+
+        var b2 = new Bola(context);
+        b2.y = 300;
+        b2.x = 300;
+        b2.velocidadeX = -5;
+        b2.velocidadeY = 10;
+        b2.cor = 'red';
+        b2.raio = 30;
+
+        var colisor = new Colisor();
+        colisor.novoSprite(b1);
+        colisor.novoSprite(b2);
+        
+        colisor.aoColidir = function(s1,s2){
+            alert('hahahahahha');
+        };
+
+        function animar() {
+            // limpando a tela 
+            context.clearRect(0,0,canvas.width,canvas.heigt);
+
+            // atualizando os sprites
+            b1.atualizar();
+            b2.atualizar();
+
+            // desenhado
+            b1.desenhar();
+            b2.desenhar();
+
+            // processar colisões
+            colisor.processar();
+
+            requestAnimationFrame(animar);
+        }
+
+    </script>
+</body>
+</html>
